@@ -33,8 +33,8 @@ export const defaultPrompts: Prompt[] = [
   },
   {
     id: '1',
-    name: '活动促销文案撰写师',
-    description: 'AI 活动促销文案撰写师',
+    name: '活动促销文案',
+    description: 'AI 活动促销文案',
     content: '现在你是一个活动促销文案撰写师，请根据{{品牌名称}}品牌即将举行的周年庆活动，针对其主打产品{{主打产品名称}}，撰写一篇具有吸引力的促销文案。文案应该突出活动的特点、优惠力度以及产品亮点，同时在字数上保持精简，吸引顾客参与活动',
     model: OpenAIModels['gpt-3.5-turbo'],
     folderId: '1',
