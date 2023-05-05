@@ -13,6 +13,7 @@ const handler = async (req: Request): Promise<Response> => {
     };
 
     let url = `${OPENAI_API_HOST}/v1/models`;
+    console.log('process.env.OPENAI_API_KEY-----', OPENAI_API_TYPE)
     if (OPENAI_API_TYPE === 'azure') {
       url = `${OPENAI_API_HOST}/openai/deployments?api-version=${OPENAI_API_VERSION}`;
     }

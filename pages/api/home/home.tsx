@@ -80,7 +80,6 @@ const Home = ({
     ['GetModels', apiKey, serverSideApiKeyIsSet],
     ({ signal }) => {
       if (!apiKey && !serverSideApiKeyIsSet) return null;
-
       return getModels(
         {
           key: apiKey,
@@ -360,7 +359,7 @@ const Home = ({
       }}
     >
       <Head>
-        <title>Chatbot UI</title>
+        <title>ChatPro</title>
         <meta name="description" content="ChatGPT but better." />
         <meta
           name="viewport"
