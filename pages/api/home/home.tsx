@@ -21,8 +21,8 @@ import {
   saveConversations,
   updateConversation,
 } from '@/utils/app/conversation';
-import { saveFolders } from '@/utils/app/folders';
-import { savePrompts } from '@/utils/app/prompts';
+import { saveFolders, defaultFoders } from '@/utils/app/folders';
+import { savePrompts, defaultPrompts } from '@/utils/app/prompts';
 import { getSettings } from '@/utils/app/settings';
 
 import { Conversation } from '@/types/chat';
@@ -291,14 +291,16 @@ const Home = ({
       dispatch({ field: 'showPromptbar', value: showPromptbar === 'true' });
     }
 
-    const folders = localStorage.getItem('folders');
+    const _folders = JSON.parse(localStorage.getItem('folders') || '[]')
+    const folders = [...defaultFoders, ..._folders]
     if (folders) {
-      dispatch({ field: 'folders', value: JSON.parse(folders) });
+      dispatch({ field: 'folders', value: folders });
     }
 
-    const prompts = localStorage.getItem('prompts');
+    const _prompts = JSON.parse(localStorage.getItem('prompts') || '[]');
+    const prompts = [...defaultPrompts, ..._prompts]
     if (prompts) {
-      dispatch({ field: 'prompts', value: JSON.parse(prompts) });
+      dispatch({ field: 'prompts', value: prompts });
     }
 
     const conversationHistory = localStorage.getItem('conversationHistory');

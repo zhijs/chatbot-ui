@@ -172,14 +172,14 @@ const Folder = ({
             >
               <IconPencil size={18} />
             </SidebarActionButton>
-            <SidebarActionButton
+            { !currentFolder.isDefault && <SidebarActionButton
               handleClick={(e) => {
                 e.stopPropagation();
                 setIsDeleting(true);
               }}
             >
               <IconTrash size={18} />
-            </SidebarActionButton>
+            </SidebarActionButton>}
           </div>
         )}
       </div>
