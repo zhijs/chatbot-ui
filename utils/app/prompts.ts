@@ -18,7 +18,10 @@ export const updatePrompt = (updatedPrompt: Prompt, allPrompts: Prompt[]) => {
 };
 
 export const savePrompts = (prompts: Prompt[]) => {
-  localStorage.setItem('prompts', JSON.stringify(prompts));
+  const savePrompts = prompts.filter((item) => {
+    return !item.isDefault  
+  })
+  localStorage.setItem('prompts', JSON.stringify(savePrompts));
 };
 
 export const defaultPrompts: Prompt[] = [

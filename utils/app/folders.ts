@@ -1,7 +1,10 @@
 import { FolderInterface } from '@/types/folder';
 
 export const saveFolders = (folders: FolderInterface[]) => {
-  localStorage.setItem('folders', JSON.stringify(folders));
+  const saveFolders = folders.filter((item) => {
+    return !item.isDefault  
+  })
+  localStorage.setItem('folders', JSON.stringify(saveFolders));
 };
 
 
