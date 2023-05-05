@@ -70,6 +70,7 @@ export const Chat = memo(({ stopConversationRef }: Props) => {
 
   const handleSend = useCallback(
     async (message: Message, deleteCount = 0, plugin: Plugin | null = null) => {
+      handleScrollDown()
       if (selectedConversation) {
         let updatedConversation: Conversation;
         if (deleteCount) {
@@ -480,7 +481,6 @@ export const Chat = memo(({ stopConversationRef }: Props) => {
                 ))}
 
                 {loading && <ChatLoader />}
-
                 <div
                   className="h-[162px] bg-white dark:bg-[#343541]"
                   ref={messagesEndRef}
